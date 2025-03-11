@@ -11,6 +11,5 @@ node_modules/
 /.idea/vcs.xml
 arqiva.iml
 .DS_Store
-output.xml
 screenshots
 tests-examples

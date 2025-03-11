@@ -1,0 +1,40 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="11.31386">
+<testsuite name="ui-tests.spec.js" timestamp="2025-03-11T13:43:24.476Z" hostname="chromium" tests="1" failures="0" skipped="0" time="9.61" errors="0">
+<testcase name="go through all options under media tab and assert" classname="ui-tests.spec.js" time="9.61">
+<system-out>
+<![CDATA[{
+  about: [
+    { option: [32m'About Arqiva'[39m, url: [32m'/about/index'[39m },
+    { option: [32m'Arqiva Life'[39m, url: [32m'/about/arqiva-life'[39m },
+    { option: [32m'Leadership'[39m, url: [32m'/about/leadership'[39m },
+    { option: [32m'Shareholders'[39m, url: [32m'/about/shareholders'[39m },
+    {
+      option: [32m'Corporate Responsibility'[39m,
+      url: [32m'/about/corporate-responsibility'[39m
+    },
+    {
+      option: [32m'Financial Reporting'[39m,
+      url: [32m'/about/financial-reporting/'[39m
+    },
+    {
+      option: [32m'Credit Investors'[39m,
+      url: [32m'/financial-reporting/credit-investors/'[39m
+    }
+  ],
+  media: [
+    { option: [32m'Our Media Services'[39m, url: [32m'/media/index'[39m },
+    { option: [32m'TV'[39m, url: [32m'/media/tv'[39m },
+    { option: [32m'TV Products'[39m, url: [32m'/media/TV_Products'[39m },
+    { option: [32m'Radio'[39m, url: [32m'/media/radio'[39m }
+  ]
+}
+[33m4[39m
+
+[[ATTACHMENT|../test-results/ui-tests-go-through-all-options-under-media-tab-and-assert-chromium/video.webm]]
+
+[[ATTACHMENT|../test-results/ui-tests-go-through-all-options-under-media-tab-and-assert-chromium/trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

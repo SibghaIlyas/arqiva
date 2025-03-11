@@ -35,7 +35,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: playwright-html-report
-          path: cicd-results/output.xml/index.html
+          path: index.html
           retention-days: 1
 
   deploy_to_staging:
