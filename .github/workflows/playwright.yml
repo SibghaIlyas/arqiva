@@ -29,13 +29,13 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: junit-test-results
-          path: output.xml
+          path: '**/output.xml'
           retention-days: 1
       - name: Upload HTML Test Report (results.html)
         uses: actions/upload-artifact@v4
         with:
           name: playwright-html-report
-          path: index.html
+          path: '**/index.xml'
           retention-days: 1
 
   deploy_to_staging:
