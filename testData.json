@@ -1,0 +1,50 @@
+{
+  "about": [
+      {
+        "option": "About Arqiva",
+        "url": "/about/index"
+      },
+      {
+        "option": "Arqiva Life",
+        "url": "/about/arqiva-life"
+      },
+      {
+        "option": "Leadership",
+        "url": "/about/leadership"
+      },
+      {
+        "option": "Shareholders",
+        "url": "/about/shareholders"
+      },
+      {
+        "option": "Corporate Responsibility",
+        "url": "/about/corporate-responsibility"
+      },
+      {
+        "option": "Financial Reporting",
+        "url": "/about/financial-reporting/"
+      },
+      {
+        "option": "Credit Investors",
+        "url": "/financial-reporting/credit-investors/"
+      }
+    ],
+  "media": [
+    {
+      "option": "Our Media Services",
+      "url": "/media/index"
+    },
+    {
+      "option": "TV",
+      "url": "/media/tv"
+    },
+    {
+      "option": "TV Products",
+      "url": "/media/TV_Products"
+    },
+    {
+      "option": "Radio",
+      "url": "/media/radio"
+    }
+  ]
+}
