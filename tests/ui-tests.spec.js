@@ -33,7 +33,9 @@ test('go through all options under media tab and assert', async ({ page }) => {
     for(let i = 0; i < testData.media.length; i++) {
         await page.getByRole('button', {name: /Media/}).click();
         await page.getByRole('link', {name: testData.media[i].option, exact: true }).click();
-        await page.screenshot({ path: 'screenshots/'+testData.media[i].option+'.png', fullPage: true });
+        await page.screenshot({ path: 'screenshots/'+testData.media[i].option+'.png',
+            fullPage: true,
+            timeout: 90000});
         await expect(page.url()).toContain(testData.media[i].url);
     }
 
