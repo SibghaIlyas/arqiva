@@ -29,14 +29,14 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: junit-test-results
-          path: output.xml
-          retention-days: 7
+          path: cicd-results/output.xml
+          retention-days: 1
       - name: Upload HTML Test Report (results.html)
         uses: actions/upload-artifact@v4
         with:
           name: playwright-html-report
-          path: test-results/index.html
-          retention-days: 7
+          path: cicd-results/output.xml/index.html
+          retention-days: 1
 
   deploy_to_staging:
     runs-on: ubuntu-latest
