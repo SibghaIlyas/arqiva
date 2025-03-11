@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
       - name: Install Dependencies
@@ -26,13 +26,13 @@ jobs:
       - name: Run Playwright Tests
         run: npx playwright test --reporter=junit,html
       - name: Upload JUnit Test Results (output.xml)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: junit-test-results
           path: output.xml
           retention-days: 7
       - name: Upload HTML Test Report (results.html)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: playwright-html-report
           path: test-results/index.html
@@ -43,7 +43,7 @@ jobs:
     needs: test  # Runs after the 'test' job
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Deploy to Staging Environment
         run: ./deploy-to-staging.sh
 
@@ -52,6 +52,6 @@ jobs:
     needs: deploy_to_staging  # Runs after the 'deploy_to_staging' job
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Deploy to Production
         run: ./deploy-to-production.sh
