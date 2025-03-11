@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: playwright-html-report
-          path: index.html
+          path: test-results/index.html
           retention-days: 1
 
 #  deploy_to_staging:
