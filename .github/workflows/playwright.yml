@@ -24,20 +24,20 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright Tests
-        run: npx playwright test --reporter=junit --output test-results/
+        run: npx playwright test
       - name: List files in the workspace
         run: ls -R
       - name: Upload JUnit Test Results (output.xml)
         uses: actions/upload-artifact@v4
         with:
           name: junit-test-results
-          path: test-results/output.xml
+          path: output.xml
           retention-days: 1
       - name: Upload HTML Test Report (results.html)
         uses: actions/upload-artifact@v4
         with:
           name: playwright-html-report
-          path: test-results/index.html
+          path: index.html
           retention-days: 1
 
 #  deploy_to_staging:
