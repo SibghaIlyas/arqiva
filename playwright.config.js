@@ -24,7 +24,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    ['junit', { outputFile: 'cicd-results/output.xml' }],  // For CI/CD
+    ['junit', { outputFile: 'output.xml' }],  // For CI/CD
     ['html', { outputFolder: 'test-results', open: 'never' }]  // For testers
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
