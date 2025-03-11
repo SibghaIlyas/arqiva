@@ -33,6 +33,7 @@ test('go through all options under media tab and assert', async ({ page }) => {
     for(let i = 0; i < testData.media.length; i++) {
         await page.getByRole('button', {name: /Media/}).click();
         await page.getByRole('link', {name: testData.media[i].option, exact: true }).click();
+        await page.evaluate(() => document.fonts.ready.catch(() => {}));
         await page.screenshot({ path: 'screenshots/'+testData.media[i].option+'.png',
             fullPage: true,
             timeout: 90000});
