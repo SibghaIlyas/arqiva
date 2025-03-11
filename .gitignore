@@ -12,3 +12,5 @@ node_modules/
 arqiva.iml
 .DS_Store
 tests-examples
+output.xml
+test-results/
