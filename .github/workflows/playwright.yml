@@ -39,8 +39,6 @@ jobs:
           name: playwright-html-report
           path: test-results/index.html
           retention-days: 1
-      - name: List files in the workspace
-          run: ls -R
 
 #  deploy_to_staging:
 #    runs-on: ubuntu-latest
