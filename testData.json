@@ -46,5 +46,51 @@
       "option": "Radio",
       "url": "/media/radio"
     }
+  ],
+  "utilities": [
+    {
+      "option": "Our Utilities Services",
+      "url": "/utilities/index"
+    },
+    {
+      "option": "Water metering",
+      "url": "/utilities/water-metering"
+    },
+    {
+      "option": "Managed connectivity",
+      "url": "/utilities/managed-connectivity"
+    },
+    {
+      "option": "Managed sensors",
+      "url": "/utilities/managed-sensors"
+    }
+  ],
+  "satellite_data": [
+    {
+      "option": "Our satellite data services",
+      "url": "/satellite-data/index"
+    },
+    {
+      "option": "Satellite Gateway",
+      "url": "/satellite-data/satellite-gateway"
+    },
+    {
+      "option": "Satellite Data Comms",
+      "url": "/satellite-data/satellite-data"
+    }
+  ],
+  "careers": [
+    {
+      "option": "Careers at Arqiva",
+      "url": "/careers/index"
+    },
+    {
+      "option": "Why Arqiva?",
+      "url": "/careers/why-arqiva"
+    },
+    {
+      "option": "Graduates & Apprentices",
+      "url": "/careers/graduates-apprentices"
+    }
   ]
 }
