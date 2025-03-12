@@ -38,11 +38,11 @@ jobs:
           path: playwright-report/index.html
           retention-days: 1
       - name: Upload Screenshots
-          uses: actions/upload-artifact@v4
-          with:
-            name: screenshots
-            path: screenshots/*.xml
-            retention-days: 1
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: screenshots/*.xml
+          retention-days: 1
 
 #  deploy_to_staging:
 #    runs-on: ubuntu-latest
