@@ -70,7 +70,8 @@ test('go through all options under Careers tab and assert', async ({ page }) => 
         await page.getByRole('button', {name: /Careers/}).click();
         await page.getByRole('link', {name: testData.careers[i].option, exact: true }).click();
         await page.evaluate(() => document.fonts.ready.catch(() => {}));
-        await page.screenshot({ path: 'screenshots/'+testData.careers[i].option+'.png',
+        let name = testData.careers[i].option.replace(/[^a-zA-Z0-9]/g, '')
+        await page.screenshot({ path: 'screenshots/'+ name +'.png',
             fullPage: true,
             timeout: 90000});
         await expect(page.url()).toContain(testData.careers[i].url);
