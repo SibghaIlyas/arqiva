@@ -17,65 +17,49 @@ test('go to home page', async ({ page }) => {
 });
 
 test('go through all options under about tab and assert', async ({ page }) => {
-    for(let i = 0; i < testData.about.length; i++) {
-        await page.getByRole('button', {name: /About/}).click();
-        await page.getByRole('link', {name: testData.about[i].option}).click();
-        await page.screenshot({ path: 'screenshots/'+testData.about[i].option+'.png', fullPage: true });
-        await expect(page.url()).toContain(testData.about[i].url);
-    }
+    await navigateAndAssert(page, /About/, testData.about)
 
 });
 
-test('go through all options under media tab and assert', async ({ page }) => {
-    for(let i = 0; i < testData.media.length; i++) {
-        await page.getByRole('button', {name: /Media/}).click();
-        await page.getByRole('link', {name: testData.media[i].option, exact: true }).click();
+async function navigateAndAssert(page, tabName, options) {
+
+    for (let i = 0; i < options.length; i++) {
+
+        await page.getByRole('button', { name: new RegExp(tabName) }).click();
+
+        await page.getByRole('link', { name: options[i].option, exact: true }).click();
+
         await page.evaluate(() => document.fonts.ready.catch(() => {}));
-        await page.screenshot({ path: 'screenshots/'+testData.media[i].option+'.png',
-            fullPage: true,
-            timeout: 90000});
-        await expect(page.url()).toContain(testData.media[i].url);
+
+        let name = options[i].option.replace(/[^a-zA-Z0-9]/g, '')
+
+        await page.screenshot({ path: `screenshots/${name}.png`, fullPage: true, timeout: 90000 });
+
+        await expect(page.url()).toContain(options[i].url);
+
     }
+
+}
+
+ 
+
+test('go through all options under media tab and assert', async ({ page }) => {
+    await navigateAndAssert(page, /Media/, testData.media)
 
 });
 
 test('go through all options under utilities tab and assert', async ({ page }) => {
-    for(let i = 0; i < testData.utilities.length; i++) {
-        await page.getByRole('button', {name: /Utilities/}).click();
-        await page.getByRole('link', {name: testData.utilities[i].option, exact: true }).click();
-        await page.evaluate(() => document.fonts.ready.catch(() => {}));
-        await page.screenshot({ path: 'screenshots/'+testData.utilities[i].option+'.png',
-            fullPage: true,
-            timeout: 90000});
-        await expect(page.url()).toContain(testData.utilities[i].url);
-    }
+    await navigateAndAssert(page, /Utilities/, testData.utilities)
 
 });
 
 test('go through all options under Satellite Data tab and assert', async ({ page }) => {
-    for(let i = 0; i < testData.satellite_data.length; i++) {
-        await page.getByRole('button', {name: /Satellite Data/}).click();
-        await page.getByRole('link', {name: testData.satellite_data[i].option, exact: true }).click();
-        await page.evaluate(() => document.fonts.ready.catch(() => {}));
-        await page.screenshot({ path: 'screenshots/'+testData.satellite_data[i].option+'.png',
-            fullPage: true,
-            timeout: 90000});
-        await expect(page.url()).toContain(testData.satellite_data[i].url);
-    }
+    await navigateAndAssert(page, /Satellite Data/, testData.satellite_data)
 
 });
 
 test('go through all options under Careers tab and assert', async ({ page }) => {
-    for(let i = 0; i < testData.careers.length; i++) {
-        await page.getByRole('button', {name: /Careers/}).click();
-        await page.getByRole('link', {name: testData.careers[i].option, exact: true }).click();
-        await page.evaluate(() => document.fonts.ready.catch(() => {}));
-        let name = testData.careers[i].option.replace(/[^a-zA-Z0-9]/g, '')
-        await page.screenshot({ path: 'screenshots/'+ name +'.png',
-            fullPage: true,
-            timeout: 90000});
-        await expect(page.url()).toContain(testData.careers[i].url);
-    }
+    await navigateAndAssert(page, /Careers/, testData.careers)
 
 });
 
