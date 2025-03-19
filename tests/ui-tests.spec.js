@@ -4,8 +4,13 @@ import fs from 'fs';
 let testData;
 
 test.beforeAll(async() => {
-    const rawData = fs.readFileSync('testData.json', 'utf-8');
-    testData = JSON.parse(rawData);
+    try {
+        const rawData = fs.readFileSync('testData.json', 'utf-8');
+        testData = JSON.parse(rawData);
+    } catch(error) {
+        console.error("Error parsing data file " + error);
+    }
+   
 })
 
 test.beforeEach(async({page}) => {
@@ -20,26 +25,6 @@ test('go through all options under about tab and assert', async ({ page }) => {
     await navigateAndAssert(page, /About/, testData.about)
 
 });
-
-async function navigateAndAssert(page, tabName, options) {
-
-    for (let i = 0; i < options.length; i++) {
-
-        await page.getByRole('button', { name: new RegExp(tabName) }).click();
-
-        await page.getByRole('link', { name: options[i].option, exact: true }).click();
-
-        await page.evaluate(() => document.fonts.ready.catch(() => {}));
-
-        let name = options[i].option.replace(/[^a-zA-Z0-9]/g, '')
-
-        await page.screenshot({ path: `screenshots/${name}.png`, fullPage: true, timeout: 90000 });
-
-        await expect(page.url()).toContain(options[i].url);
-
-    }
-
-}
 
  
 
@@ -71,3 +56,17 @@ test('go through contact and news & views tabs and assert', async ({ page }) => 
 
 
 });
+
+
+async function navigateAndAssert(page, tabName, options) {
+
+    for (let i = 0; i < options.length; i++) {
+        await page.getByRole('button', { name: new RegExp(tabName) }).click();
+        await page.getByRole('link', { name: options[i].option, exact: true }).click();
+        await page.evaluate(() => document.fonts.ready.catch(() => {}));
+        let name = options[i].option.replace(/[^a-zA-Z0-9]/g, '')
+        await page.screenshot({ path: `screenshots/${name}.png`, fullPage: true, timeout: 90000 });
+        expect(page.url()).toContain(options[i].url);
+    }
+
+}
